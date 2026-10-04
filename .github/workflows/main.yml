@@ -23,5 +23,5 @@ jobs:
         - uses: actions/checkout@v4
         - name: create file in repo
           run: echo "Repository pushed! Or possibly issue created!" >> ./access.txt
-        - name: Lint code
-          run: pylint
+        - name: Build project
+          run: docker build .
