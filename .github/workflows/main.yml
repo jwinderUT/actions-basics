@@ -17,11 +17,3 @@ jobs:
       - name: run echo
         run: echo "Hello, world!"
 
-    Do-a-lil-Extra: 
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v4
-        - name: create file in repo
-          run: echo "Repository pushed! Or possibly issue created!" >> ./access.txt
-        - name: Build project
-          run: docker build .

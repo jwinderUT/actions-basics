@@ -1,0 +1,24 @@
+name: lil extra
+
+on:   
+  issues:
+    types:
+      - opened
+
+jobs:
+    noissues:
+        runs-on: ubuntu-latest
+        permissions:
+            issues: write
+        steps:
+            - uses: actions/first-interaction@v1
+              with:
+                repo-token: ${{ secrets.GITHUB_TOKEN }}
+                issue-message: "Haeugh, blech, ptooey. Hate this issue, yucky. Go away." 
+            - name: Close
+              env:
+                GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                REPO: ${{ github.repository }}
+                ISSUE: ${{ github.event.issue.number }}
+              run: gh issue close --repo "$REPO" "$ISSUE"
+
